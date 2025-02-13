@@ -5,10 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FantaLabels"
         mc:Ignorable="d"
-        Title="FantaLabel" 
-        Height="450" 
-        Width="800">
-    <Grid Background="#FFDDDDDD">
-       
-    </Grid>
+        WindowStyle="None"
+        Height="600" 
+        Width="920"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border Background="#FFC5C5C5" 
+            CornerRadius="15">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="FantaLabel"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Foreground="Black"
+                       FontSize="22"
+                       Margin="20,0,0,0"/>
+            
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"/>   
+                
+                <RadioButton Content="Printers"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"/>
+            </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"/>
+        </Grid>
+    </Border>
 </Window>

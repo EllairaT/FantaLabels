@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="345"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -23,45 +23,42 @@
                   HorizontalAlignment="Left"
                   Foreground="Black"
                   FontSize="28"
-                  Margin="20,0,0,0"/>
+                  Margin="20,0,0,0" Height="37" Width="131"/>
 
-        <StackPanel Grid.Row="1">
-            <Label Content="Project/Part Name"
-                   Foreground="White"
-                   Target="{Binding ElementName=txtProj}"/>
-            <TextBox Text="TextBox" 
-                     Height="25"
-                     Name="txtProj"/>
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="20">
+            <!-- Project Name -->
+            <TextBlock Text="Project Name:"/>
+            <TextBox Width="Auto" MinWidth="150" Margin="0,0,0,20"/>
 
+            <!-- Owner -->
+            <TextBlock Text="Owner:"/>
+            <TextBox Width="Auto" MinWidth="150" Margin="0,0,0,20"/>
 
-            <Label Content="Owner"
-                   Foreground="White"
-                   Target="txtOwner"/>
-            <TextBox TextWrapping="Wrap" 
-                     Text="TextBox" 
-                     Height="25"
-                     Name="txtOwner"/>
-            
-            
-            <Label Content="Entry Date"
-                   Foreground="White"/>
-            <DatePicker />
+            <!-- Grid for Side-by-Side DatePickers -->
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!-- Entry Date -->
+                    <ColumnDefinition Width="20"/>
+                    <!-- Spacer -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Expiration Date -->
+                </Grid.ColumnDefinitions>
 
-            <Label Content="Expiration Date"
-                   Foreground="White"/>
-            <DatePicker/>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <TextBlock Text="Entry Date:"/>
+                    <DatePicker Width="150"/>
+                </StackPanel>
 
-            <Label Content="Purpose"
-                    Foreground="White"
-                    Target="txtPurpose"/>
-            
-            <TextBox TextWrapping="Wrap" 
-              Text="TextBox" 
-              Height="50"
-              Name="txtPurpose"/>
+                <StackPanel Orientation="Vertical" Grid.Column="2">
+                    <TextBlock Text="Expiration Date:"/>
+                    <DatePicker Width="150"/>
+                </StackPanel>
+            </Grid>
 
-
-
+            <!-- Purpose -->
+            <TextBlock Text="Purpose:"/>
+            <TextBox Width="Auto" Height="70" TextWrapping="Wrap"/>
         </StackPanel>
 
     </Grid>

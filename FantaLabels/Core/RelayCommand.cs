@@ -1,13 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+
+
+// helper class for button command execution 
 
 namespace FantaLabels.Core
 {
     class RelayCommand : ICommand
     {
-        private Action<object> _execute;
-        private Func<object, bool> _canExecute;
+        private readonly Action<object> _execute;
+        private readonly Func<object, bool> _canExecute;
 
         public event EventHandler CanExecuteChanged
         {
@@ -21,14 +22,7 @@ namespace FantaLabels.Core
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object param)
-        {
-            return _canExecute == null || _canExecute(param);
-        }
-
-        public void Execute(object param)
-        {
-            _execute(param);
-        }
+        public bool CanExecute(object param) => _canExecute == null || _canExecute(param);
+        public void Execute(object param) => _execute(param);       
     }
 }

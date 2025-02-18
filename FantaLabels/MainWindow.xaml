@@ -3,20 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:FantaLabels.MVVM.ViewModel"
         xmlns:local="clr-namespace:FantaLabels"
         mc:Ignorable="d"
-        WindowStyle="None"
-        Height="600" 
+        Title="FantaLabel"
+        WindowStyle="SingleBorderWindow"
+        Height="500" 
         Width="920"
         ResizeMode="NoResize"
-        Background="Transparent"
-        AllowsTransparency="True">
+        Background="Transparent">
 
-    <Border Background="#FFC5C5C5" 
-            CornerRadius="15">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#FFC5C5C5">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="367"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -30,23 +34,13 @@
                        HorizontalAlignment="Left"
                        Foreground="Black"
                        FontSize="22"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0,0,0" Height="29" Width="104"/>
             
-            <StackPanel Grid.Row="1">
-                <RadioButton Content="Home"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"/>   
-                
-                <RadioButton Content="Printers"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"/>
-            </StackPanel>
-
             <ContentControl Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="10"/>
+                            Grid.Column="0"
+                            Margin="10,10,10,10"
+                            Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
+    <!-- TODO: Label preview window + print option -->
 </Window>

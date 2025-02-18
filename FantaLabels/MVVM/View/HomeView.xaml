@@ -14,32 +14,32 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Print Label"
+        <TextBlock Text="Create Label"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Left"
                   Foreground="Black"
-                  FontSize="28"
-                  Margin="20,0,0,0" Height="37" Width="131"/>
+                  FontSize="20"
+                  Margin="20,0,0,0" Height="30" Width="131"/>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="20">
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10,10,10,10">
             <!-- Project Name -->
             <TextBlock Text="Project Name:"/>
-            <TextBox Width="Auto" MinWidth="150" Margin="0,0,0,20"/>
+            <TextBox Width="Auto" MinWidth="150" Height="25" Margin="0,0,0,20"/>
 
             <!-- Owner -->
             <TextBlock Text="Owner:"/>
-            <TextBox Width="Auto" MinWidth="150" Margin="0,0,0,20"/>
+            <TextBox Width="Auto" MinWidth="150" Height="25" Margin="0,0,0,20"/>
 
-            <!-- Grid for Side-by-Side DatePickers -->
+            <!-- Grid for DatePickers -->
             <Grid Margin="0,0,0,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <!-- Entry Date -->
-                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="15"/>
                     <!-- Spacer -->
                     <ColumnDefinition Width="*" />
                     <!-- Expiration Date -->
@@ -48,6 +48,12 @@
                 <StackPanel Orientation="Vertical" Grid.Column="0">
                     <TextBlock Text="Entry Date:"/>
                     <DatePicker Width="150"/>
+                    <!-- Checkbox to select today's date -->
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox Name="todayCheck" Margin="0,0,5,0"/>
+                        <TextBlock Text="Today"/>
+                    </StackPanel>
+                    
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Column="2">
@@ -58,9 +64,8 @@
 
             <!-- Purpose -->
             <TextBlock Text="Purpose:"/>
-            <TextBox Width="Auto" Height="70" TextWrapping="Wrap"/>
+            <TextBox AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="Auto" Height="70" TextWrapping="Wrap" Margin="0,0,0,20"/>
         </StackPanel>
-
     </Grid>
 
 </UserControl>

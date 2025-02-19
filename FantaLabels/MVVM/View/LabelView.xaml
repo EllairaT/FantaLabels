@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FantaLabels.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="330">
+             d:DesignHeight="400" d:DesignWidth="330" Background="White" BorderThickness="5,5,5,5" ClipToBounds="True">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="89*"/>
@@ -53,7 +53,7 @@
             </Grid>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10,10,10,10">
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="5,5,5,5">
 
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Purpose:"/>

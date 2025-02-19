@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="FantaLabel"
         WindowStyle="SingleBorderWindow"
-        Height="500" 
+        Height="600" 
         Width="920"
         ResizeMode="NoResize"
         Background="Transparent">
@@ -20,14 +20,14 @@
     <Border Background="#FFC5C5C5">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="367"/>
+                <ColumnDefinition Width="435"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
-                <RowDefinition Height="349*"/>
-                <RowDefinition Height="60*"/>
+                <RowDefinition Height="388*"/>
+                <RowDefinition Height="121*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Create Label"
@@ -60,9 +60,9 @@
 
                     <StackPanel Orientation="Vertical" Grid.Column="0">
                         <TextBlock Text="Entry Date:"/>
-                        <DatePicker Width="150"/>
+                        <DatePicker Width="150" HorizontalAlignment="Left"/>
                         <!-- Checkbox to select today's date -->
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                             <CheckBox Name="todayCheck" Margin="0,0,5,0"/>
                             <TextBlock Text="Today"/>
                         </StackPanel>
@@ -71,16 +71,19 @@
 
                     <StackPanel Orientation="Vertical" Grid.Column="2">
                         <TextBlock Text="Expiration Date:"/>
-                        <DatePicker Width="150"/>
+                        <DatePicker Width="150" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Grid>
 
                 <!-- Purpose -->
                 <TextBlock Text="Purpose:"/>
-                <TextBox AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="Auto" Height="70" TextWrapping="Wrap" Margin="0,0,0,20"/>
+                <TextBox AcceptsReturn="True" 
+                         VerticalScrollBarVisibility="Auto" 
+                         Width="Auto" Height="127" 
+                         TextWrapping="Wrap"/>
             </StackPanel>
             <!--#endregion-->
-            
+
             <!--#region LABEL PREVIEW -->
             <!--<StackPanel Grid.Column="1"
                         Grid.Row="1"
@@ -88,14 +91,21 @@
                         Margin="10,10,10,10">
               
             </StackPanel>-->
-            <ContentControl Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="10"
-                            HorizontalAlignment="Center"
-                            Content="{Binding LabelView}"/>
+            <StackPanel Grid.Row="1"           
+                        Grid.RowSpan="2"
+                        Grid.Column="1"
+                        Margin="0,10,0,10"
+                        HorizontalAlignment="Center" Width="338">
+                
+                <ContentControl Content="{Binding LabelView}"/>
+                <Button Height="30" 
+                        Width="100" 
+                        Margin="0,50,0,0" 
+                        Content="Print"/>
+            </StackPanel>
             <!--#endregion-->
         </Grid>
 
     </Border>
-    <!-- TODO: Label preview window + print option -->
+ 
 </Window>

@@ -18,7 +18,7 @@ namespace FantaLabels.MVVM.View
     /// <summary>
     /// Interaction logic for LabelView.xaml
     /// </summary>
-    public partial class LabelView : Page
+    public partial class LabelView : UserControl
     {
         public LabelView()
         {

@@ -30,22 +30,70 @@
                 <RowDefinition Height="60*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="FantaLabel"
+            <TextBlock Text="Create Label"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="Black"
                        FontSize="22"
-                       Margin="20,0,0,0" Height="29" Width="104"/>
+                       Margin="20,0,0,0" Height="29" Width="134"/>
 
-            <ContentControl Grid.Row="1"
-                            Grid.Column="0"
-                            Margin="10,10,10,10"
-                            Content="{Binding HomeView}" Grid.RowSpan="2"/>
+            <!--#region DATA ENTRY -->
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10,10,10,10">
+                <!-- Project/part Name -->
+                <TextBlock Text="Project/Part Name:"/>
+                <TextBox Width="Auto" MinWidth="150" Height="25" Margin="0,0,0,20"/>
 
+                <!-- Owner -->
+                <TextBlock Text="Owner:"/>
+                <TextBox Width="Auto" MinWidth="150" Height="25" Margin="0,0,0,20"/>
+
+                <!-- Grid for DatePickers -->
+                <Grid Margin="0,0,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!-- Entry Date -->
+                        <ColumnDefinition Width="15"/>
+                        <!-- Spacer -->
+                        <ColumnDefinition Width="*" />
+                        <!-- Expiration Date -->
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBlock Text="Entry Date:"/>
+                        <DatePicker Width="150"/>
+                        <!-- Checkbox to select today's date -->
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Name="todayCheck" Margin="0,0,5,0"/>
+                            <TextBlock Text="Today"/>
+                        </StackPanel>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="2">
+                        <TextBlock Text="Expiration Date:"/>
+                        <DatePicker Width="150"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Purpose -->
+                <TextBlock Text="Purpose:"/>
+                <TextBox AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Width="Auto" Height="70" TextWrapping="Wrap" Margin="0,0,0,20"/>
+            </StackPanel>
+            <!--#endregion-->
+            
+            <!--#region LABEL PREVIEW -->
+            <!--<StackPanel Grid.Column="1"
+                        Grid.Row="1"
+                        Orientation="Vertical" 
+                        Margin="10,10,10,10">
+              
+            </StackPanel>-->
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="10,10,10,10"
+                            Margin="10"
+                            HorizontalAlignment="Center"
                             Content="{Binding LabelView}"/>
+            <!--#endregion-->
         </Grid>
 
     </Border>

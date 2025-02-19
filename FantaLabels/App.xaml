@@ -9,6 +9,9 @@
         <ResourceDictionary>
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>
+            </DataTemplate> 
+            <DataTemplate DataType="{x:Type viewModel:LabelViewModel}">
+                <view:LabelView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

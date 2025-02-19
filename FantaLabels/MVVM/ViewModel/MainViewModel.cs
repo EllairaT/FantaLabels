@@ -8,21 +8,37 @@ namespace FantaLabels.MVVM.ViewModel
     {
 
         public HomeViewModel HomeVM { get; set; }
-        private object _currentView;
+        public LabelViewModel LabelVM { get; set; }
 
-        public object CurrentView
+        private object _homeView;
+        private object _labelView;
+
+        public object HomeView
         {
-            get { return _currentView; }
+            get { return _homeView; }
             set
             {
-                _currentView = value;
+                _homeView = value;
                 OnPropertyChanged();
             }
         }
+
+        public object LabelView
+        {
+            get { return _labelView; }
+            set
+            {
+                _labelView = value;
+                OnPropertyChanged();
+            }
+        }
+
         public MainViewModel() 
         {
-            HomeVM= new HomeViewModel();
-            CurrentView = HomeVM;
+            HomeVM = new HomeViewModel();
+            LabelVM = new LabelViewModel();
+            HomeView = HomeVM;
+            LabelVM = LabelVM;  
         }
     }
 }

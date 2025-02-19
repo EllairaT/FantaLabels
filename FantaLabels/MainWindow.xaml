@@ -26,7 +26,8 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
-                <RowDefinition/>
+                <RowDefinition Height="349*"/>
+                <RowDefinition Height="60*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="FantaLabel"
@@ -35,12 +36,18 @@
                        Foreground="Black"
                        FontSize="22"
                        Margin="20,0,0,0" Height="29" Width="104"/>
-            
+
             <ContentControl Grid.Row="1"
                             Grid.Column="0"
                             Margin="10,10,10,10"
-                            Content="{Binding CurrentView}"/>
+                            Content="{Binding HomeView}" Grid.RowSpan="2"/>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10,10,10,10"
+                            Content="{Binding LabelView}"/>
         </Grid>
+
     </Border>
     <!-- TODO: Label preview window + print option -->
 </Window>

@@ -1,0 +1,57 @@
+﻿<Page x:Class="FantaLabels.MVVM.View.LabelView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FantaLabels.MVVM.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="450">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="44*"/>
+            <RowDefinition Height="79*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10,10,10,10">
+            <TextBlock Text="Product/Part Name:"/>
+            <TextBlock Text="Blahblahblah234ddasra" FontSize="28"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="10,10,10,10" >
+            <TextBlock Text="Owner:"/>
+            <TextBlock Text="Blahblahblah" FontSize="24"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,10,10,19">
+            <!-- Grid for DatePickers -->
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!-- Entry Date -->
+                    <ColumnDefinition Width="15"/>
+                    <!-- Spacer -->
+                    <ColumnDefinition Width="*" />
+                    <!-- Expiration Date -->
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <TextBlock Text="Entry Date:"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="2">
+                    <TextBlock Text="Expiration Date:"/>
+              
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="10,10,10,10">
+            <TextBlock Text="Purpose:"/>
+            <TextBlock Text="Blahblahblaasdasdxcwsawh" FontSize="20"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

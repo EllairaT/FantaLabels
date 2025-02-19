@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace FantaLabels
 {
@@ -8,9 +9,12 @@ namespace FantaLabels
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-        
-
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            //PrintHelper.PrintVisual(LabelUserControl, "Label Print");
+            System.Diagnostics.Debug.WriteLine("hi");
         }
     }
 }

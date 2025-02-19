@@ -18,5 +18,9 @@ namespace FantaLabels.MVVM.Model
             ExpirationDate = expirationDate;
             Purpose = purpose;
         }
+        public override string ToString()
+        {
+            return $"Label: {Name}, Owner: {Owner}, Entry Date: {EntryDate.ToShortDateString()}, Expiration Date: {ExpirationDate.ToShortDateString()}, Purpose: {Purpose}";
+        }
     }
 }

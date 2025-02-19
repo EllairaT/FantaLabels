@@ -1,5 +1,5 @@
 ﻿using System;
-using FantaLabels.Core;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 
 namespace FantaLabels.MVVM.ViewModel

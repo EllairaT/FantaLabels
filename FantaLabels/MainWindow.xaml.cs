@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FantaLabels.MVVM.ViewModel;
+using System;
 using System.Windows;
 
 namespace FantaLabels
@@ -9,6 +10,7 @@ namespace FantaLabels
         public MainWindow()
         {
             InitializeComponent();
+            DataContext=new MainViewModel();
         }
 
         private void PrintButton_Click(object sender, RoutedEventArgs e)

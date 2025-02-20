@@ -1,28 +1,27 @@
-﻿using System;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using FantaLabels.MVVM.Model;
+using System.Windows.Input;
 
 
 namespace FantaLabels.MVVM.ViewModel
 {
-    class MainViewModel : ObservableObject
+    public class MainViewModel : ObservableObject
     {
+
         public LabelViewModel LabelVM { get; set; }
-        private object _labelView {  get; set; }
 
+        public ICommand UpdateLabelCommand { get; }
 
-        public object LabelView
-        {
-            get { return _labelView; }
-            set 
-            { 
-                _labelView = value; 
-                OnPropertyChanged();
-            }
-        }
-        public MainViewModel() 
+        public MainViewModel()
         {
             LabelVM = new LabelViewModel();
-            _labelView = LabelVM;
+            UpdateLabelCommand = new RelayCommand(UpdateLabel);
+        }
+
+        private void UpdateLabel()
+        {
+            System.Diagnostics.Debug.WriteLine($"Finalized Label: {LabelVM.Label.Name}, {LabelVM.Label.Purpose}, {LabelVM.EntryDateFormatted}, {LabelVM.ExpiryDateFormatted}");
         }
     }
 }

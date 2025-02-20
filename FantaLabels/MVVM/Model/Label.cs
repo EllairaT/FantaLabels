@@ -2,7 +2,7 @@
 
 namespace FantaLabels.MVVM.Model
 {
-    class Label
+    public class Label
     {
         public string Name { get; set; }
         public string Owner { get; set; }
@@ -20,7 +20,10 @@ namespace FantaLabels.MVVM.Model
         }
         public override string ToString()
         {
-            return $"Label: {Name}, Owner: {Owner}, Entry Date: {EntryDate.ToShortDateString()}, Expiration Date: {ExpirationDate.ToShortDateString()}, Purpose: {Purpose}";
+            return $"Label: {Name}, Owner: {Owner}, Entry Date: {EntryDate}, Expiration Date: {ExpirationDate}, Purpose: {Purpose}";
         }
+
+        // default constructor for binding
+        public Label() { }
     }
 }

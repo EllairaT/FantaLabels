@@ -7,9 +7,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <DataTemplate DataType="{x:Type viewModel:LabelViewModel}">
-                <view:LabelView/>
-            </DataTemplate>
+         
         </ResourceDictionary>
     </Application.Resources>
 </Application>

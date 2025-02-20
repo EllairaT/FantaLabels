@@ -7,11 +7,10 @@ namespace FantaLabels.MVVM.ViewModel
     public class LabelViewModel : ObservableObject
     {
         private Label _label;
-
         private string _name;
         private string _owner;
-        private DateTime _entryDate;
-        private DateTime _expiryDate;
+        private DateTime _entryDate = DateTime.Today;
+        private DateTime _expiryDate = DateTime.Today;
         private string _purpose;
 
 
@@ -42,36 +41,6 @@ namespace FantaLabels.MVVM.ViewModel
             set => SetProperty(ref _expiryDate, value);
         }
 
-        // Formatted entry date that binds to the UI (formatted as dd/MM/yyyy)
-        public string EntryDateFormatted
-        {
-            get => Label.EntryDate.ToString("dd/MM/yyyy");
-            set
-            {
-                if (DateTime.TryParse(value, out DateTime newDate))
-                {
-                    Label.EntryDate = newDate;
-                    OnPropertyChanged(nameof(EntryDateFormatted)); // Trigger notification for the formatted property
-                }
-            }
-        }
-
-        // Formatted expiration date that binds to the UI (formatted as dd/MM/yyyy)
-        public string ExpiryDateFormatted
-        {
-           
-            get => Label.ExpirationDate.ToString("dd/MM/yyyy");
-            set
-            {
-                if (DateTime.TryParse(value, out DateTime newDate))
-                {
-                    Label.ExpirationDate = newDate;
-                    OnPropertyChanged(nameof(ExpiryDateFormatted)); // Trigger notification for the formatted property
-                }
-            }
-       
-        }
-
         public string Purpose
         {
             get => _purpose;
@@ -80,7 +49,8 @@ namespace FantaLabels.MVVM.ViewModel
         public LabelViewModel()
         {
             // Initialize with placeholder data
-            _label = new Label("ExamplePartX1", "John Doe", DateTime.Now, DateTime.Now, "Placeholder text");
+            //_label = new Label("ExamplePartX1", "John Doe", DateTime.Now, DateTime.Now, "Placeholder text");
+            Label = new Label();
         }
     }
 }

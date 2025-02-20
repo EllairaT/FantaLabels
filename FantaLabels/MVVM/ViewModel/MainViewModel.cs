@@ -21,7 +21,7 @@ namespace FantaLabels.MVVM.ViewModel
 
         private void UpdateLabel()
         {
-            System.Diagnostics.Debug.WriteLine($"Finalized Label: {LabelVM.Label.Name}, {LabelVM.Label.Purpose}, {LabelVM.EntryDateFormatted}, {LabelVM.ExpiryDateFormatted}");
+            System.Diagnostics.Debug.WriteLine($"Finalized Label: {LabelVM.Label.Name}, {LabelVM.Label.Purpose}, {LabelVM.EntryDate}, {LabelVM.ExpiryDate}");
         }
     }
 }

@@ -14,8 +14,8 @@ namespace FantaLabels.MVVM.Model
         {
             Name = name;
             Owner = owner;
-            EntryDate = entryDate;
-            ExpirationDate = expirationDate;
+            EntryDate = entryDate.Date;
+            ExpirationDate = expirationDate.Date;
             Purpose = purpose;
         }
         public override string ToString()

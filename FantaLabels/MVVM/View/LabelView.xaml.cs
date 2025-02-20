@@ -1,6 +1,7 @@
 ﻿using FantaLabels.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace FantaLabels.MVVM.View
         public LabelView()
         {
             InitializeComponent();
+            DataContext = (Application.Current.MainWindow as MainWindow)?.DataContext as MainViewModel;
+            Debug.WriteLine($"LabelView DataContext: {this.DataContext?.GetType().Name}");
         }
     }
 }

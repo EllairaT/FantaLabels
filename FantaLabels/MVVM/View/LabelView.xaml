@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FantaLabels.MVVM.View" 
-             xmlns:viewmodel="clr-namespace:FantaLabels.MVVM.ViewModel" 
-             d:DataContext="{d:DesignInstance Type=viewmodel:LabelViewModel}"
+             xmlns:viewmodel="clr-namespace:FantaLabels.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="400" 
              d:DesignWidth="330" 
@@ -22,13 +21,13 @@
 
         <StackPanel Grid.Row="0" Orientation="Vertical" Margin="5,5,5,5">
             <TextBlock Text="Product/Part Name:"/>
-            <TextBlock Text="{Binding Label.Name}" FontSize="26"/>
+            <TextBlock Text="{Binding LabelVM.Label.Name, Mode=TwoWay}" FontSize="26"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,5,5,5" >
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Owner:"/>
-                <TextBlock Text="{Binding Label.Owner}" 
+                <TextBlock Text="{Binding LabelVM.Label.Owner, Mode=TwoWay}" 
                            FontSize="18" Width="308"/>
             </StackPanel>
 
@@ -49,12 +48,12 @@
 
                 <StackPanel Orientation="Vertical" Grid.Column="0">
                     <TextBlock Text="Entry Date:"/>
-                    <TextBlock Text="{Binding EntryDateFormatted, Mode=TwoWay}"/>
+                    <TextBlock Text="{Binding LabelVM.EntryDate, Mode=TwoWay}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Column="2" Margin="0,0,10,0">
                     <TextBlock Text="Expiration Date:"/>
-                    <TextBlock Text="{Binding ExpiryDateFormatted, Mode=TwoWay}"/>
+                    <TextBlock Text="{Binding LabelVM.ExpiryDate, Mode=TwoWay}"/>
 
                 </StackPanel>
             </Grid>
@@ -63,7 +62,7 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="5,5,5,5">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="Purpose:"/>
-                <TextBlock Text="{Binding Label.Purpose}"
+                <TextBlock Text="{Binding LabelVM.Label.Purpose, Mode=TwoWay}"
                            FontSize="16" 
                            Width="170" 
                            Height="115" 
@@ -77,5 +76,6 @@
                    Margin="30,0,0,0"/>
 
         </StackPanel>
+        
     </Grid>
 </UserControl>

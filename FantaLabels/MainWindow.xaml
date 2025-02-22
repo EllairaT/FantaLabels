@@ -77,7 +77,7 @@
                         <TextBlock Text="Entry Date:"/>
                         <DatePicker Width="150" 
                                     HorizontalAlignment="Left"
-                                    SelectedDate="{Binding LabelVM.EntryDate}"/>
+                                    SelectedDate="{Binding LabelVM.EntryDate, Mode=TwoWay}"/>
 
                     </StackPanel>
 

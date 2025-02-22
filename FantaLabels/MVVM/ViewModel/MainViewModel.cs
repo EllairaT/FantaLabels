@@ -9,10 +9,19 @@ namespace FantaLabels.MVVM.ViewModel
     public class MainViewModel : ObservableObject
     {
 
-        public LabelViewModel LabelVM { get; set; }
+        private LabelViewModel _labelVM;
+        private DateTime _entryDate;
+        private DateTime _expiryDate;
 
         public ICommand UpdateLabelCommand { get; }
+        public LabelViewModel LabelVM
+        {
+            get => _labelVM;
+            set => SetProperty(ref _labelVM, value);
+        }
 
+
+ 
         public MainViewModel()
         {
             LabelVM = new LabelViewModel();
@@ -21,7 +30,9 @@ namespace FantaLabels.MVVM.ViewModel
 
         private void UpdateLabel()
         {
-            System.Diagnostics.Debug.WriteLine($"Finalized Label: {LabelVM.Label.Name}, {LabelVM.Label.Purpose}, {LabelVM.EntryDate}, {LabelVM.ExpiryDate}");
+            //System.Diagnostics.Debug.WriteLine($"Finalized Label: {LabelVM.Label.Name}, {LabelVM.Label.Purpose}, {LabelVM.FormattedEntry}, {LabelVM.FormattedExpiry}");
+            System.Diagnostics.Debug.WriteLine(LabelVM.Label.ToString());
+            System.Diagnostics.Debug.WriteLine($"{LabelVM.FormattedEntry}, {LabelVM.FormattedExpiry}");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace FantaLabels
         private void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             //PrintHelper.PrintVisual(LabelUserControl, "Label Print");
-            System.Diagnostics.Debug.WriteLine("hi");
+            
         }
     }
 }

@@ -77,7 +77,7 @@
                         <TextBlock Text="Entry Date:"/>
                         <DatePicker Width="150" 
                                     HorizontalAlignment="Left"
-                                    SelectedDate="{Binding LabelVM.EntryDate, Mode=TwoWay}"/>
+                                    SelectedDate="{Binding LabelVM.Label.EntryDate}"/>
 
                     </StackPanel>
 
@@ -85,7 +85,7 @@
                         <TextBlock Text="Expiration Date:"/>
                         <DatePicker Width="150" 
                                     HorizontalAlignment="Left"
-                                    SelectedDate="{Binding LabelVM.ExpiryDate}"/>
+                                    SelectedDate="{Binding LabelVM.Label.ExpiryDate}"/>
                     </StackPanel>
                 </Grid>
 

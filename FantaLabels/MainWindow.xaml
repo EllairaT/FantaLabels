@@ -10,7 +10,8 @@
         WindowStyle="SingleBorderWindow"
         Height="600" 
         Width="900"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:LabelViewModel}">
@@ -121,13 +122,13 @@
                 <Button Height="50" 
                         Width="100" 
                         Content="Print"
-                        Command="{Binding FinalizeLabelCommand}"/>
+                        Click="PrintButton_Click"/>
             </StackPanel>
             <StackPanel Grid.Row="1"           
                         Grid.RowSpan="2"
                         Grid.Column="1"               
                         HorizontalAlignment="Center">
-                <ContentControl Content="{Binding LabelVM}"/>
+                <ContentControl x:Name="LabelViewContainer" Content="{Binding LabelVM}"/>
             </StackPanel>
             <!--#endregion-->
         </Grid>

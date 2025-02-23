@@ -21,8 +21,6 @@ namespace FantaLabels.MVVM.ViewModel
         {
             LabelVM = new LabelViewModel();
             FinalizeLabelCommand = new RelayCommand(LabelVM.FinalizeLabel);
-        }
-
-     
+        }   
     }
 }

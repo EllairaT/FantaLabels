@@ -1,6 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FantaLabels.MVVM.Model;
+using FantaLabels.MVVM.View;
+using System.Diagnostics;
+using System.Windows.Controls;
+using System.Windows;
 using System.Windows.Input;
 
 
@@ -8,7 +12,6 @@ namespace FantaLabels.MVVM.ViewModel
 {
     public class MainViewModel : ObservableObject
     {
-
         private LabelViewModel _labelVM;
         public ICommand FinalizeLabelCommand { get; }
         public LabelViewModel LabelVM
@@ -22,7 +25,5 @@ namespace FantaLabels.MVVM.ViewModel
             LabelVM = new LabelViewModel();
             FinalizeLabelCommand = new RelayCommand(LabelVM.FinalizeLabel);
         }
-
-     
     }
 }

@@ -8,30 +8,26 @@ namespace FantaLabels.MVVM.Model
 {
     public static class QrCodeHelper
     {
-        public static BitmapImage GenerateQrCode(string text)
+        public static BitmapImage GenerateQrCode(string data)
         {
-            using (QRCodeGenerator qrGenerator = new QRCodeGenerator())
-            using (QRCodeData qrCodeData = qrGenerator.CreateQrCode(text, QRCodeGenerator.ECCLevel.Q))
-            using (QRCode qrCode = new QRCode(qrCodeData))
-            {
-                Bitmap qrBitmap = qrCode.GetGraphic(10); // 10 = pixel per module
-                return BitmapToImageSource(qrBitmap);
-            }
+            using QRCodeGenerator qrGenerator = new();
+            using QRCodeData qrCodeData = qrGenerator.CreateQrCode(data, QRCodeGenerator.ECCLevel.Q);
+            using QRCode qrCode = new(qrCodeData);
+            Bitmap qrBitmap = qrCode.GetGraphic(10); 
+            return BitmapToImageSource(qrBitmap);
         }
 
         private static BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
-            using (MemoryStream stream = new MemoryStream())
-            {
-                bitmap.Save(stream, ImageFormat.Png);
-                stream.Position = 0;
-                BitmapImage image = new BitmapImage();
-                image.BeginInit();
-                image.StreamSource = stream;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.EndInit();
-                return image;
-            }
+            using MemoryStream stream = new();
+            bitmap.Save(stream, ImageFormat.Png);
+            stream.Position = 0;
+            BitmapImage image = new();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.CacheOption = BitmapCacheOption.OnLoad;
+            image.EndInit();
+            return image;
         }
     }
 }

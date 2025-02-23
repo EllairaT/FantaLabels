@@ -10,7 +10,7 @@ namespace FantaLabels.MVVM.ViewModel
     {
 
         private LabelViewModel _labelVM;
-        public ICommand UpdateLabelCommand { get; }
+        public ICommand FinalizeLabelCommand { get; }
         public LabelViewModel LabelVM
         {
             get => _labelVM;
@@ -20,14 +20,9 @@ namespace FantaLabels.MVVM.ViewModel
         public MainViewModel()
         {
             LabelVM = new LabelViewModel();
-            UpdateLabelCommand = new RelayCommand(UpdateLabel);
+            FinalizeLabelCommand = new RelayCommand(LabelVM.FinalizeLabel);
         }
 
-        private void UpdateLabel()
-        {
-
-            //System.Diagnostics.Debug.WriteLine($"Finalized Label: {LabelVM.Label.Name}, {LabelVM.Label.Purpose}, {LabelVM.FormattedEntry}, {LabelVM.FormattedExpiry}");
-            System.Diagnostics.Debug.WriteLine(LabelVM.Label.ToString());
-        }
+     
     }
 }

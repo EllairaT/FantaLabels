@@ -1,6 +1,5 @@
 ﻿
-
-
+using Newtonsoft.Json;
 
 namespace FantaLabels.MVVM.Model
 {
@@ -23,8 +22,7 @@ namespace FantaLabels.MVVM.Model
 
         public override string ToString()
         {
-            //System.Diagnostics.Debug.WriteLine($"Entry Date: {FormattedEntry}, Expiration Date: {FormattedExpiry}");
-            return $"Label: {Name}, Owner: {Owner}, Entry Date: {EntryDate}, Expiration Date: {ExpiryDate}, Purpose: {Purpose}";
+            return JsonConvert.SerializeObject(this);
         }
 
         public Label() { }

@@ -1,5 +1,7 @@
 ﻿using FantaLabels.MVVM.Model;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Windows.Media.Imaging;
+using QRCoder;
 
 namespace FantaLabels.MVVM.ViewModel
 {
@@ -8,12 +10,10 @@ namespace FantaLabels.MVVM.ViewModel
         private Label _label;
         private string _name;
         private string _owner;
-
         private DateTime _entryDate;
         private DateTime _expiryDate;
         private string _purpose;
-        private string _formattedEntry;
-        private string _formattedExpiry;
+        private BitmapImage _qrCodeImage;
 
         public Label Label
         {
@@ -53,6 +53,17 @@ namespace FantaLabels.MVVM.ViewModel
         {
             get => _purpose;
             set => SetProperty(ref _purpose, value);
+        }        
+        public BitmapImage QRCodeImage
+        {
+            get => _qrCodeImage;
+            set => SetProperty(ref _qrCodeImage, value);
+        }
+
+        public void FinalizeLabel()
+        {
+            QRCodeImage = QrCodeHelper.GenerateQrCode(Label.ToString());
+            System.Diagnostics.Debug.WriteLine(Label.ToString());
         }
 
         public LabelViewModel()

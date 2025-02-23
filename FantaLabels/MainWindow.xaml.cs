@@ -12,11 +12,5 @@ namespace FantaLabels
             InitializeComponent();
             DataContext=new MainViewModel();
         }
-
-        private void PrintButton_Click(object sender, RoutedEventArgs e)
-        {
-            //PrintHelper.PrintVisual(LabelUserControl, "Label Print");
-            
-        }
     }
 }

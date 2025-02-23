@@ -9,9 +9,8 @@
         Title="FantaLabel"
         WindowStyle="SingleBorderWindow"
         Height="600" 
-        Width="920"
-        ResizeMode="NoResize"
-        Background="Transparent">
+        Width="900"
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:LabelViewModel}">
@@ -26,13 +25,14 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="435"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="416*"/>
+                <ColumnDefinition Width="49*"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
-                <RowDefinition Height="417*"/>
-                <RowDefinition Height="92*"/>
+                <RowDefinition Height="443*"/>
+                <RowDefinition Height="66*"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Create Label"
@@ -98,8 +98,10 @@
                          TextWrapping="Wrap"
                          Text="{Binding LabelVM.Label.Purpose}"/>
 
-                <Button Content="Generate Label QR Code" 
-                        Command="{Binding UpdateLabelCommand}" />
+                <Button Height="50"
+                        Margin="0,20,0,0"
+                        Content="Generate Label QR Code" 
+                        Command="{Binding FinalizeLabelCommand}"/>
             </StackPanel>
             <!--#endregion-->
 
@@ -110,22 +112,24 @@
                         Margin="10,10,10,10">
               
             </StackPanel>-->
-            <StackPanel Grid.Row="1"           
-                        Grid.RowSpan="3"
+            <StackPanel Grid.Row="0"
                         Grid.Column="1"
-                        Margin="0,10,0,10"
-                        HorizontalAlignment="Center" Width="338">
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Width="100">
 
-                <ContentControl Content="{Binding LabelVM}"/>
-                <Button Height="30" 
+                <Button Height="50" 
                         Width="100" 
-                        Margin="0,50,0,0" 
                         Content="Print"
-                        Click="PrintButton_Click"/>
+                        Command="{Binding FinalizeLabelCommand}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1"           
+                        Grid.RowSpan="2"
+                        Grid.Column="1"               
+                        HorizontalAlignment="Center">
+                <ContentControl Content="{Binding LabelVM}"/>
             </StackPanel>
             <!--#endregion-->
         </Grid>
-
     </Border>
-
 </Window>

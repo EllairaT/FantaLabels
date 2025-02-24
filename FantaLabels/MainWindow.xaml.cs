@@ -1,4 +1,4 @@
-﻿using FantaLabels.MVVM.View;
+using FantaLabels.MVVM.View;
 using FantaLabels.MVVM.ViewModel;
 using Microsoft.Win32;
 using PdfSharp.Drawing;

@@ -1,5 +1,4 @@
 ﻿using FantaLabels.MVVM.ViewModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,7 +15,7 @@ namespace FantaLabels.MVVM.View
             InitializeComponent();
             // We need the datacontext to be MainViewModel because it has our LabelViewModel. We want to use that.
             DataContext = (Application.Current.MainWindow as MainWindow)?.DataContext as MainViewModel;
-            Debug.WriteLine($"LabelView DataContext: {this.DataContext?.GetType().Name}");
+            //Debug.WriteLine($"LabelView DataContext: {this.DataContext?.GetType().Name}");
         }
     }
 }

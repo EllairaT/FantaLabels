@@ -1,40 +1,53 @@
-﻿using FantaLabels.MVVM.View;
+using FantaLabels.MVVM.View;
 using FantaLabels.MVVM.ViewModel;
+using Microsoft.Win32;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using System;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Windows.Media.Imaging;
 
 namespace FantaLabels
 {
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-
-            var labelView = new LabelView();
-
-            LabelViewContainer.Content = labelView;
-
-            DataContext = new MainViewModel();
-
+            DataContext =new MainViewModel();
         }
-        private void PrintButton_Click(object sender, RoutedEventArgs e)
+
+        // Making sure LabelView is initialised because things break otherwise
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            // Accessing the LabelViewControl directly
-            var labelView = LabelViewContainer.Content as LabelView;
-
+            var labelView = new LabelView();
+            LabelViewContainer.Content = labelView;
             if (labelView != null)
-            {
-                Debug.WriteLine("not null");
-                PrintLabel(labelView);
+            {          
+                Debug.WriteLine("LabelView has been initialized!");
             }
             else
             {
-                Debug.WriteLine("im null????");
+                Debug.WriteLine("LabelView is still null.");
+            }
+        }
+
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            var labelViewControl = LabelViewContainer.Content as UserControl;
+
+            if (labelViewControl != null)
+            {
+                PrintLabel(labelViewControl);
+            }
+            else
+            {
+                MessageBox.Show("LabelViewControl is not available.");
             }
         }
 

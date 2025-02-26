@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="FantaLabel"
         WindowStyle="SingleBorderWindow"
-        Height="600" 
+        Height="680" 
         Width="900"
         ResizeMode="NoResize"
         Loaded="Window_Loaded">
@@ -22,7 +22,7 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#FFC5C5C5">
+    <Border Background="#FFC5C5C5" Margin="0,0,0,0">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="435"/>
@@ -56,12 +56,35 @@
                          Text="{Binding LabelVM.Label.Name}"/>
 
                 <!-- Owner -->
-                <TextBlock Text="Owner:"/>
-                <TextBox Width="Auto" 
-                         MinWidth="150" 
-                         Height="25" 
-                         Margin="0,0,0,20"
-                         Text="{Binding LabelVM.Label.Owner}"/>
+                <Grid Margin="0,0,0,20" Height="41" Width="413">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <!-- Entry Date -->
+                        <ColumnDefinition Width="15"/>
+                        <!-- Spacer -->
+                        <ColumnDefinition Width="*" />
+                        <!-- Expiration Date -->
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBlock Text="Owner:"/>
+                        <TextBox Width="Auto" 
+                                 MinWidth="150" 
+                                 Height="25" 
+                                 Margin="0,0,0,20"
+                                 Text="{Binding LabelVM.Label.Owner}"/>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="2">
+                        <TextBlock Text="Co-Owner:"/>
+                        <TextBox Width="Auto" 
+                                MinWidth="150" 
+                                Height="25" 
+                                Margin="0,0,0,20"
+                                Text="{Binding LabelVM.Label.CoOwner}"/>
+                    </StackPanel>
+                </Grid>
 
                 <!-- Grid for DatePickers -->
                 <Grid Margin="0,0,0,20">

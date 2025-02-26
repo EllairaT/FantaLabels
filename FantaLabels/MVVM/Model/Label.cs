@@ -8,6 +8,7 @@ namespace FantaLabels.MVVM.Model
     {
         private string _name;
         private string _owner;
+        private string _coOwner;
         private DateTime _entryDate;
         private DateTime _expiryDate;
         private string _purpose;
@@ -20,6 +21,11 @@ namespace FantaLabels.MVVM.Model
         {
             get => _owner;
             set => SetProperty(ref _owner, value);
+        }      
+        public string CoOwner
+        {
+            get => _coOwner;
+            set => SetProperty(ref _coOwner, value);
         }
 
         public DateTime EntryDate

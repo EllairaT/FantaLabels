@@ -1,15 +1,9 @@
 using FantaLabels.MVVM.View;
 using FantaLabels.MVVM.ViewModel;
-using Microsoft.Win32;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using System;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
+using System.Printing;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace FantaLabels
 {
@@ -56,9 +50,9 @@ namespace FantaLabels
             // Create a PrintDialog instance
             PrintDialog printDialog = new PrintDialog();
 
-            // Check if the print dialog was successfully opened
             if (printDialog.ShowDialog() == true)
             {
+                printDialog.PrintTicket.PageMediaSize = new PageMediaSize(390, 550);
                 // Print the content of the LabelView
                 printDialog.PrintVisual(elementToPrint, "Label Print Job");
             }
